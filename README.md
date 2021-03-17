@@ -1,37 +1,37 @@
 # OpenMod [![Discord](https://img.shields.io/discord/666327627124047872?label=Discord&style=for-the-badge)](https://discord.com/invite/jRrCJVm)
 
-OpenMod is a plugin framework for .NET.
+OpenMod 是一个 .Net 插件框架
 
-It supports authorization, plugin configurations, internalization, command handling and much more. OpenMod can be used for games, bot frameworks, web servers or anything else and has official implementations for Unturned, Rust (WIP) and a standalone console.
+它支持权限配置,插件配置,容器化,命令监听等等. OpenMod可以用于游戏，机器人框架，Web服务器或其他,并具有Unturned和Rust (WIP) 和 独立的控制台.
 
-For a list of available plugins, visit [openmod-plugins](https://openmod.github.io/openmod-plugins).
+可用的插件列表 [openmod-plugins] (https://github.com/openmod/openmod-plugins). 
 
-## Features
-OpenMod is based on modern C# code and best practices.
-- Modern API for plugin development with C# and Unity best practices
-- Plugin installation with [NuGet](https://nuget.org)
-- Can self update with NuGet
-- Based on [.NET Generic Host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host)
-- IoC and Dependency Injection using Autofac
-- Configure OpenMod and plugins with yaml configurations, environment variables, commandline arguments, etc.
-- Serilog for logging, including rich configuration options via logging.yml
+## 功能
+基于现代化开发流程的最佳方案.
+- 使用C#和Unity最优秀的先进API进行插件开发
+- 使用NuGet进行插件安装与管理 [NuGet](https://nuget.org)
+- 能够使用NuGet进行自更新
+- 基于.Net 通用主机 [.NET Generic Host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host)
+- 使用Autofac 接管容器并进行依赖注入
+- 采取Yaml配置框架、插件、环境变量、命令行参数等等.
+- 使用Serilog丰富日志, 包括 logging.yml 日志的配置等
 
-## Getting Started
-To get started, visit the [OpenMod Documentation](https://openmod.github.io/openmod-docs/).
+## 开始
+要开始使用，请访问 [OpenMod Documentation](https://openmod.github.io/openmod-docs/).
 
-If you would like to install OpenMod, installation guides for the following platforms are available:
+如果要安装OpenMod，则可以使用以下指南：
 - [Unturned](https://openmod.github.io/openmod-docs/userdoc/installation/unturned.html)
 
-If you want to make plugins for OpenMod, you can get started by reading the [Making your first plugin](https://openmod.github.io/openmod-docs/devdoc/guides/getting-started.html) page.
+如果您想为OpenMod制作插件，则可以通过阅读 [制作第一个插件](https://openmod.github.io/openmod-docs/devdoc/guides/getting-started.html)
 
-## Supported Games
-Currently Unturned is the only supported game. More games might follow in the future.
+## 支持的游戏
+现在Unturned是唯一受支持的游戏,将来可能还会有更多游戏。
 
 A RocketMod 4 bridge has been made, which allows to run legacy RM4 plugins.
 The configs for RM4 are yet to be decided to be separate, or to be proxied.
 
-## License
-See [LICENSE](LICENSE) file for more information.
+## 许可
+更多信息请参加 [LICENSE](LICENSE) 文件
 
 ## Build Status [![LGTM alerts](https://img.shields.io/lgtm/alerts/github/openmod/openmod?style=for-the-badge)](https://lgtm.com/projects/g/openmod/openmod/)
 ### Framework
