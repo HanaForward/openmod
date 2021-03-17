@@ -98,7 +98,7 @@ namespace OpenMod.NuGet
                     $"<?xml version=\"1.0\" encoding=\"utf-8\"?>{nl}"
                     + $"<configuration>{nl}"
                     + $"    <packageSources>{nl}"
-                    + $"        <add key=\"nuget.org\" value=\"https://api.nuget.org/v3/index.json\" protocolVersion=\"3\" />{nl}"
+                    + $"        <add key=\"ooplay.cn\" value=\"http://repositories.ooplay.cn/nuget/ooplay/v3/index.json\" protocolVersion=\"3\" />{nl}"
                     + $"    </packageSources>{nl}"
                     + "</configuration>");
             }
