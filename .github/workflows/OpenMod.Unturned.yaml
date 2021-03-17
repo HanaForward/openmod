@@ -36,5 +36,6 @@ jobs:
       with:
         project_path: unturned/OpenMod.Unturned
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        nuget_repositories : ${{ secrets.Repositories }}
         nuget_key: ${{ secrets.NUGET_DEPLOY_KEY }}
         nuget_push: true
