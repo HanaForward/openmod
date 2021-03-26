@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net461</TargetFramework>
+		<PackageDescription>SqlSugar integration for OpenMod</PackageDescription>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="MySql.Data" Version="8.0.22" />
+		<PackageReference Include="sqlSugar" Version="5.0.2.7" />
+	</ItemGroup>
+
+	<Import Project="$(MSBuildThisFileDirectory)..\..\props\SharedProjectProps.props" />
+
+	<ItemGroup>
+		<ProjectReference Include="..\OpenMod.API\OpenMod.API.csproj" PrivateAssets="All" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+name: OpenMod.SqlSugar
+
+on:
+  create:
+    tags:
+      - "*"
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/OpenMod.SqlSugar.yaml'
+      - 'framework/OpenMod.SqlSugar/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/OpenMod.SqlSugar.yaml'
+      - 'framework/OpenMod.SqlSugar/**'
+
+jobs:
+  build:
+    name: "OpenMod.SqlSugar Build"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-dotnet@v1
+      name: Setup .NET
+      with:
+        dotnet-version: 5.0.100
+    - uses: ./.github/actions/project-build
+      id: project-build
+      with:
+        project_path: framework/OpenMod.SqlSugar
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        nuget_repositories : ${{ secrets.Repositories }}
+        nuget_key: ${{ secrets.NUGET_DEPLOY_KEY }}
+        nuget_push: true
