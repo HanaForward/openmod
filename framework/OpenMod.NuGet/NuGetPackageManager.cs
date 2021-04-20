@@ -40,9 +40,7 @@ namespace OpenMod.NuGet
             // Trademark violations
             "VaultPlugin",
             "F.AntiCosmetics",
-            "F.ItemRestrictions",
-            "F.RustResources",
-            "F.Announcer"
+            "F.ItemRestrictions"
         };
 
         private static readonly string[] s_PublisherBlacklist =
@@ -736,7 +734,7 @@ namespace OpenMod.NuGet
 
             foreach (var sourceRepository in repos)
             {
-                Logger.LogDebug("GetResourceAsync for " + sourceRepository.PackageSource.SourceUri);
+                Logger.LogDebug("GetResourceAsync (DependencyInfoResource) for " + sourceRepository.PackageSource.SourceUri);
                 var dependencyInfoResource = await sourceRepository.GetResourceAsync<DependencyInfoResource>();
 
                 Logger.LogDebug("ResolvePackage");
@@ -749,10 +747,21 @@ namespace OpenMod.NuGet
 
                 Logger.LogDebug("Dependency was found: " + package + " in " + sourceRepository.PackageSource.SourceUri);
 
+                Logger.LogDebug("GetResourceAsync (FindPackageById) for " + sourceRepository.PackageSource.SourceUri);
+                var packageResource = await sourceRepository.GetResourceAsync<FindPackageByIdResource>();
+
                 availablePackages.Add(dependencyInfo);
                 foreach (var dependency in dependencyInfo.Dependencies)
                 {
-                    await QueryPackageDependenciesAsync(new PackageIdentity(dependency.Id, dependency.VersionRange.MaxVersion ?? dependency.VersionRange.MinVersion), cacheContext, repos, availablePackages);
+                    var versions = await packageResource.GetAllVersionsAsync(dependency.Id, cacheContext, Logger, CancellationToken.None);
+
+                    if (versions == null)
+                    {
+                        Logger.LogDebug("Versions could not be found: " + package + " in " + sourceRepository.PackageSource.SourceUri);
+                        continue;
+                    }
+
+                    await QueryPackageDependenciesAsync(new PackageIdentity(dependency.Id, dependency.VersionRange.FindBestMatch(versions)), cacheContext, repos, availablePackages);
                 }
 
                 break;
